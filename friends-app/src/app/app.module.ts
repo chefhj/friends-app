@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InputFormComponent } from './input-form/input-form.component';
-import {MaterialModule} from "../../projects/material/src/lib/material.module";
-
+import { MaterialModule } from "../../projects/material/src/lib/material.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,6 +13,7 @@ import {MaterialModule} from "../../projects/material/src/lib/material.module";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
   ],
