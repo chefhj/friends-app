@@ -1,1 +1,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+html {
+  background-color: #101010;
+  color: white;
+  font-family: "Helvetica Neue";
+}
+::ng-deep .mat-mdc-tab-body-content {
+  overflow: hidden;
+}
