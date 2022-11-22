@@ -11,7 +11,7 @@ export class FriendScatterPlotComponent {
     if (data) {
       this.clearSVG();
       this.createSvg();
-      this.drawPlot(data, 'age', 'weight', 100, 1000);
+      // this.drawPlot(data, 'age', 'weight', 100, 1000);
     }
   };
   table: any;

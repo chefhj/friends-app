@@ -1,0 +1,35 @@
+.form-container {
+  width: 400px;
+  .additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
+  .submit {
+    float: right;
+  }
+  .friend-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    .date-weight {
+      display: flex;
+      justify-content: space-between;
+    }
+    .field {
+      width: 200px;
+      &.name {
+        width: 400px;
+      }
+      &.date {
+      }
+      &.weight {
+        width: 150px;
+      }
+      &.friends {
+        width: 400px;
+      }
+    }
+
+  }
+
+}

@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {Friend} from "../interaces/friend";
 import * as d3 from "d3";
 
 @Component({
@@ -13,11 +12,10 @@ export class FriendBarGraphsComponent {
     if (data) {
       this.clearSVG();
       this.createSvg();
-      this.drawBars(data, 'name', 'weight', 700);
+      // this.drawBars(data, 'name', 'weight', 700);
       this.drawBars(data, 'name', 'age', 100);
     }
   };
-  table: any;
   private svg;
   private margin = 50;
   private width = 750 - (this.margin * 2);
