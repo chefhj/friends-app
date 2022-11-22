@@ -1,0 +1,13 @@
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+  .delete {
+    border: 1px solid #efefef;
+  }
+  button {
+    width: 100px;
+    margin: 5px;
+  }
+}
