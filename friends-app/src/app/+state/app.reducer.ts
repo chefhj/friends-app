@@ -3,8 +3,7 @@ import {addFriend, deleteFriend, updateFriend} from "./app.actions";
 import {Friend} from "../interaces/friend";
 import {initialFriends} from "../mockdata/initial-friends";
 export interface AppState {
-  friendsList: Friend[] | [];
-
+  friendsList: Friend[];
 }
 export const initialState: AppState = {
   friendsList: initialFriends,
