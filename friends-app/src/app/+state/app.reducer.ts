@@ -1,5 +1,5 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {addFriend, deleteFriend, updateFriend} from "./app.actions";
+import {addFriend, updateFriendList} from "./app.actions";
 import {Friend} from "../interaces/friend";
 import {initialFriends} from "../mockdata/initial-friends";
 export interface AppState {
@@ -14,11 +14,9 @@ const _appReducer = createReducer(initialState,
       ...state,
       friendsList: [...state?.friendsList, action.payload]
     })),
-    on(updateFriend, (state, action): AppState => ({
-      ...state,
-    })),
-  on(deleteFriend, (state, action): AppState => ({
-...state,
+  on(updateFriendList, (state, action): AppState => ({
+    ...state,
+    friendsList: action.payload
   })),
 
 );
