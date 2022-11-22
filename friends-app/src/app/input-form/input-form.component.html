@@ -22,10 +22,16 @@
     </div>
     <mat-form-field class="friends field">
       <mat-label>Friends</mat-label>
-      <mat-select #friends class="select" name="weight">
-        <mat-option>null</mat-option>
+      <mat-select #friend class="select" name="weight" [formControl]="friendFormControl" multiple>
+        <mat-select-trigger>
+          {{friendFormControl.value?.[0]?.name}}
+          <span *ngIf="(friendFormControl.value?.length || 0) > 1" class="additional-selection">
+        (+{{(friendFormControl.value?.length || 0) - 1}} {{friendFormControl.value?.length === 2 ? 'other' : 'others'}})
+      </span>
+        </mat-select-trigger>
+        <mat-option *ngFor="let friend of friends" [value]="friend" >{{friend?.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </form>
-  <button mat-raised-button color="primary" class="submit" [disabled]="friendForm.invalid" (click)="addFriend()">Submit</button>
+  <button mat-raised-button color="primary" class="submit" [disabled]="friendForm.invalid" (click)="addFriend()">Add Friend</button>
 </div>

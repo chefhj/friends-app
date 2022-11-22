@@ -1,0 +1,20 @@
+<div class="landing-container">
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="label">Add a new friend</span>
+      </ng-template>
+      <div class="input-container">
+        <h2>Add a new Friend</h2>
+        <app-input-form [friends]="friends"></app-input-form>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="label">Edit Old Friend</span>
+      </ng-template>
+      <h2>Edit or Delete an existing Friend</h2>
+      <app-friend-table [data]="friends"></app-friend-table>
+    </mat-tab>
+  </mat-tab-group>
+</div>
