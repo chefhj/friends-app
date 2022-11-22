@@ -14,6 +14,8 @@ import { FriendBarGraphsComponent } from './friend-bar-graphs/friend-bar-graphs.
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { FriendScatterPlotComponent } from './friend-scatter-plot/friend-scatter-plot.component';
 import { VisualizationLayoutComponent } from './visualization-layout/visualization-layout.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { VisualizationLayoutComponent } from './visualization-layout/visualizati
     FriendBarGraphsComponent,
     AppHeaderComponent,
     FriendScatterPlotComponent,
-    VisualizationLayoutComponent
+    VisualizationLayoutComponent,
+    EditFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { VisualizationLayoutComponent } from './visualization-layout/visualizati
     AppRoutingModule,
     StoreModule.forRoot({app: appReducer}, {initialState: {app: initialState}})
   ],
-  providers: [],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
