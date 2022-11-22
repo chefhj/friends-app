@@ -6,6 +6,12 @@
   .delete {
     border: 1px solid #efefef;
   }
+  .disabled {
+    color: #888;
+    &.delete {
+      border: 1px solid #888;
+    }
+  }
   button {
     width: 100px;
     margin: 5px;

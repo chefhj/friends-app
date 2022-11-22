@@ -44,6 +44,6 @@
   </tr>
 </table>
 <div class="button-container">
-  <button mat-raised-button color="primary">Edit</button>
-  <button mat-raised-button color="secondary" class="delete">Delete</button>
+  <button mat-raised-button color="primary" (click)="editFriend()" [ngClass]="!selection.selected?.length ? 'disabled' : ''" [disabled]="!selection.selected?.length">Edit</button>
+  <button mat-raised-button color="secondary" class="delete" [ngClass]="!selection.selected?.length ? 'disabled' : ''" (click)="deleteFriend()" [disabled]="!selection.selected?.length">Delete</button>
 </div>
