@@ -17,7 +17,7 @@ export class AppHeaderComponent {
   ngOnInit() {
     this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
       .subscribe(event => {
-        this.onHomePage = event.url.includes('home');
+        this.onHomePage = !event.url.includes('visualizations');
       });
   }
   goToVisuals() {
