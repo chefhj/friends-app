@@ -1,4 +1,5 @@
 <div class="header">
+  <mat-icon (click)="goHome()" aria-hidden="false" aria-label="home icon" fontIcon="home" class="visuals-icon" [ngClass]="onHomePage ? 'hide' : ''"></mat-icon>
   <h1>Friend Tracker</h1>
-
+  <mat-icon (click)="goToVisuals()" aria-hidden="false" aria-label="visualization icon" fontIcon="bar_chart" class="visuals-icon" [ngClass]="onHomePage ? '' : 'hide'"></mat-icon>
 </div>

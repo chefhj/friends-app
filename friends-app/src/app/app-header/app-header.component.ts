@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs/operators";
 
 @Component({
   selector: 'app-header',
@@ -7,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppHeaderComponent {
 
+  onHomePage: boolean;
+
+  constructor (private router: Router) {
+
+  }
+  ngOnInit() {
+    this.router.events.pipe(filter((event: any) => event instanceof NavigationEnd))
+      .subscribe(event => {
+        this.onHomePage = event.url.includes('home');
+      });
+  }
+  goToVisuals() {
+    this.router.navigate(['visualizations']);
+  }
+  goHome() {
+    this.router.navigate(['home']);
+  }
 }
