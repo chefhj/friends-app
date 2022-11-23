@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 import {Store} from "@ngrx/store";
 import {addFriend} from "../+state/app.actions";
 import {initialFriends} from "../mockdata/initial-friends";

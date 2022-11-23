@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FriendBarGraphsComponent } from './friend-bar-graphs.component';
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 import {initialFriends} from "../mockdata/initial-friends";
 
 describe('FriendBarGraphsComponent', () => {

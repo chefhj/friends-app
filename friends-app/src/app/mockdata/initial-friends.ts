@@ -1,4 +1,4 @@
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 const bob: Friend = {
   name: 'Bobby Johnson',
   weight: 320,

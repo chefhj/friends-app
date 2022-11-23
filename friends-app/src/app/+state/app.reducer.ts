@@ -1,6 +1,6 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import {addFriend, updateFriendList} from "./app.actions";
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 import {initialFriends} from "../mockdata/initial-friends";
 export interface AppState {
   friendsList: Friend[];

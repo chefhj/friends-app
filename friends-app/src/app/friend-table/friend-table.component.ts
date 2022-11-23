@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 import {MatTableDataSource} from "@angular/material/table";
 import {SelectionModel} from "@angular/cdk/collections";
 import {Store} from "@ngrx/store";

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FriendScatterPlotComponent } from './friend-scatter-plot.component';
-import {Friend} from "../interaces/friend";
+import {Friend} from "../interfaces/friend";
 import {initialFriends} from "../mockdata/initial-friends";
 
 describe('FriendScatterPlotComponent', () => {
