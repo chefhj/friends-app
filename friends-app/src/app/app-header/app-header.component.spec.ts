@@ -25,12 +25,12 @@ describe('AppHeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should navigate home', () => {
+  it('should navigate home', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.goHome();
     expect(navigateSpy).toHaveBeenCalledWith(['home']);
   });
-  fit('should navigate to visuals', () => {
+  it('should navigate to visuals', () => {
     const navigateSpy = spyOn(router, 'navigate');
     component.goToVisuals();
     expect(navigateSpy).toHaveBeenCalledWith(['visualizations']);

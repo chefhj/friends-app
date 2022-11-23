@@ -7,7 +7,7 @@ import {initialState} from "../+state/app.reducer";
 import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {DateAdapter, MAT_DATE_FORMATS, MatNativeDateModule} from "@angular/material/core";
+import {MatNativeDateModule} from "@angular/material/core";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDatepickerInputHarness} from "@angular/material/datepicker/testing";
 import {TestbedHarnessEnvironment} from "@angular/cdk/testing/testbed";
@@ -42,5 +42,23 @@ describe('EditFormComponent', () => {
     const datepicker = await loader.getHarness(MatDatepickerInputHarness);
     await datepicker.setValue('9/27/1954');
     expect(await datepicker.getValue()).withContext('Date should be 9/27/1954').toBe('9/27/1954');
+  });
+
+  it('should return a Friend', () => {
+    expect(component.createFriend())
+      .toEqual( { name: 'Bobby Johnson', age: 62,
+        dob: new Date('Fri Jul 01 1960 00:00:00 GMT-0500 (Central Daylight Time)'), weight: 320, friends: [  ] })
+  });
+  it('should clear the form', () => {
+    component.clearForm();
+    expect(component.nameFormControl.value)
+      .toEqual( null)
+  });
+  it('should call clear form and create friend', () => {
+    const clearFormSpy = spyOn(component, 'clearForm');
+    const createFriendSpy = spyOn(component, 'createFriend');
+    component.saveChanges();
+    expect(clearFormSpy).toHaveBeenCalled();
+    expect(createFriendSpy).toHaveBeenCalled();
   });
 });
