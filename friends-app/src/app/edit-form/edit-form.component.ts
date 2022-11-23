@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {Friend} from "../interaces/friend";
-import {addFriend, updateFriendList} from "../+state/app.actions";
+import { updateFriendList} from "../+state/app.actions";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({

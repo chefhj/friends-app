@@ -1,11 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FriendBarGraphsComponent } from './friend-bar-graphs.component';
+import {Friend} from "../interaces/friend";
+import {initialFriends} from "../mockdata/initial-friends";
 
 describe('FriendBarGraphsComponent', () => {
   let component: FriendBarGraphsComponent;
   let fixture: ComponentFixture<FriendBarGraphsComponent>;
-
+  let friends: Friend[] = initialFriends;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ FriendBarGraphsComponent ]
@@ -14,6 +16,7 @@ describe('FriendBarGraphsComponent', () => {
 
     fixture = TestBed.createComponent(FriendBarGraphsComponent);
     component = fixture.componentInstance;
+    component.data = friends;
     fixture.detectChanges();
   });
 

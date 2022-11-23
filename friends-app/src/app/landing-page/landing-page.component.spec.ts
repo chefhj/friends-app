@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingPageComponent } from './landing-page.component';
+import {provideMockStore} from "@ngrx/store/testing";
+import {initialState} from "../+state/app.reducer";
+import {MatTabsModule} from "@angular/material/tabs";
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
@@ -8,7 +13,11 @@ describe('LandingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingPageComponent ]
+      imports: [MatTabsModule, BrowserAnimationsModule],
+      declarations: [ LandingPageComponent ],
+      providers: [provideMockStore({initialState})],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
     })
     .compileComponents();
 
