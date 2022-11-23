@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {AfterViewChecked, Component, Input} from '@angular/core';
 import * as d3 from "d3";
 
 @Component({
@@ -6,23 +6,28 @@ import * as d3 from "d3";
   templateUrl: './friend-bar-graphs.component.html',
   styleUrls: ['./friend-bar-graphs.component.scss']
 })
-export class FriendBarGraphsComponent {
+export class FriendBarGraphsComponent implements AfterViewChecked{
 
   @Input() set data(data: any) {
     if (data) {
+      this.dataSet = data;
       this.clearSVG();
       this.createSvg();
-      // this.drawBars(data, 'name', 'weight', 700);
-      this.drawBars(data, 'name', 'age', 100);
+      this.drawBars(data, this.xAttribute, this.yAttribute, this.scale);
     }
   };
+  @Input() xAttribute;
+  @Input() yAttribute;
+  @Input() scale;
   private svg;
   private margin = 50;
   private width = 750 - (this.margin * 2);
   private height = 500 - (this.margin * 2);
-
-  ngOnInit() {
-
+  private dataSet;
+  ngAfterViewChecked(): void {
+    this.clearSVG();
+    this.createSvg();
+    this.drawBars(this.dataSet, this.xAttribute, this.yAttribute, this.scale);
   }
 
   private createSvg(): void {

@@ -5,13 +5,25 @@
     <ng-template mat-tab-label>
       <span class="label">Bar Graphs</span>
     </ng-template>
-    <app-friend-bar-graphs [data]="friends"></app-friend-bar-graphs>
+    <mat-radio-group
+      aria-labelledby="radio-group-label"
+      class="radio-group"
+      [(ngModel)]="yValue">
+      <mat-radio-button class="radio" [value]="'age'">
+        Age
+      </mat-radio-button>
+      <mat-radio-button class="radio" [value]="'weight'">
+        Weight
+      </mat-radio-button>
+    </mat-radio-group>
+    <app-friend-bar-graphs [data]="friends" [xAttribute]="'name'" [yAttribute]="yValue" [scale]="yValue === 'age' ? 100 : 1000"></app-friend-bar-graphs>
+<!--    <app-friend-bar-graphs [data]="friends" [xAttribute]="'name'" [yAttribute]="'weight'" [scale]="1000"></app-friend-bar-graphs>-->
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <span class="label">Scatter Plots</span>
     </ng-template>
-    <app-friend-scatter-plot [data]="friends"></app-friend-scatter-plot>
+    <app-friend-scatter-plot [data]="friends" [xAttribute]="'weight'" [yAttribute]="'age'" [label]="'name'"[xScale]="1000" [yScale]="100"></app-friend-scatter-plot>
   </mat-tab>
 </mat-tab-group>
 </div>

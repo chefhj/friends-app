@@ -7,6 +7,16 @@
       color: #673ab7;
     }
   }
+.radio-group{
+  display: flex;
+  justify-content: center;
+  .radio {
+    .mdc-form-field {
+      color: white;
+    }
+  }
+}
+
 }
 
 

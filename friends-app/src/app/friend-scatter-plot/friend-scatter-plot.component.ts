@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import * as d3 from "d3";
 
 @Component({
@@ -6,22 +6,29 @@ import * as d3 from "d3";
   templateUrl: './friend-scatter-plot.component.html',
   styleUrls: ['./friend-scatter-plot.component.scss']
 })
-export class FriendScatterPlotComponent {
+export class FriendScatterPlotComponent implements  AfterViewChecked{
   @Input() set data(data: any) {
     if (data) {
+      this.dataSet = data;
       this.clearSVG();
       this.createSvg();
-      // this.drawPlot(data, 'age', 'weight', 100, 1000);
+      this.drawPlot(data, this.xAttribute, this.yAttribute, this.label, this.xScale, this.yScale);
     }
   };
-  table: any;
+  @Input() xAttribute;
+  @Input() yAttribute;
+  @Input() xScale;
+  @Input() yScale;
+  @Input() label;
   private svg;
   private margin = 50;
-  private width = 750 - (this.margin * 2);
+  private width = 600 - (this.margin * 2);
   private height = 400 - (this.margin * 2);
-
-  ngOnInit() {
-
+  private dataSet;
+  ngAfterViewChecked(): void {
+    this.clearSVG();
+    this.createSvg();
+    this.drawPlot(this.dataSet, this.xAttribute, this.yAttribute, this.label, this.xScale, this.yScale);
   }
 
   private createSvg(): void {
@@ -38,7 +45,7 @@ export class FriendScatterPlotComponent {
       .selectAll('svg').remove();
   }
 
-  private drawPlot(data, xAttribute, yAttribute, xScale: number, yScale: number): void {
+  private drawPlot(data, xAttribute, yAttribute, label: string, xScale: number, yScale: number): void {
     // Add X axis
     const x = d3.scaleLinear()
       .domain([0, xScale])
@@ -71,7 +78,7 @@ export class FriendScatterPlotComponent {
       .data(data)
       .enter()
       .append("text")
-      .text(d => d?.name)
+      .text(d => d?.[label])
       .attr("x", d => x(d?.[xAttribute]))
       .attr("y", d => y(d?.[yAttribute]))
       .style("fill", "white")

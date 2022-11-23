@@ -14,6 +14,7 @@ import {Subject} from "rxjs";
 export class VisualizationLayoutComponent {
   friends: any = [];
   ngUnsubscribe: Subject<any> = new Subject();
+  yValue: string = 'age';
   constructor (private store$: Store) {}
 
   ngOnInit(): void {
