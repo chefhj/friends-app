@@ -20,9 +20,13 @@ export class AppHeaderComponent {
         this.onHomePage = !event.url.includes('visualizations');
       });
   }
+
+  //change route to /visualization
   goToVisuals() {
     this.router.navigate(['visualizations']);
   }
+
+  //change route to /home
   goHome() {
     this.router.navigate(['home']);
   }

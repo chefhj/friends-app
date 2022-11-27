@@ -27,7 +27,7 @@ export class EditFormComponent {
   }
 
   ngOnInit() {
-
+    //initialize form values with data from mat dialog
     this.selectedFriend = this.data.selectedFriend;
     const index = this.data.friends.indexOf(this.selectedFriend);
     const tempData = [...this.data.friends];
@@ -45,6 +45,7 @@ export class EditFormComponent {
       }
     )
   }
+  //returns a Friend object based on the form controls
   createFriend() {
     const newFriend: Friend = {
       name: this.nameFormControl.value,
@@ -55,12 +56,16 @@ export class EditFormComponent {
     };
     return newFriend;
   }
+
+  //clears input form
   clearForm() {
     this.nameFormControl.reset();
     this.ageFormControl.reset();
     this.weightFormControl.reset();
     this.friendFormControl.reset();
   }
+
+  //saves edited friend in the store in place of the old entry
   saveChanges() {
     const newFriend = this.createFriend();
     const temp = [...this.data.friends];

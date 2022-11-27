@@ -18,6 +18,8 @@ export class VisualizationLayoutComponent {
   constructor (private store$: Store) {}
 
   ngOnInit(): void {
+
+    //Get Friend list entries from store
     this.store$.pipe(select(selectFriendsList), takeUntil(this.ngUnsubscribe))
       .subscribe({next: (friends) => {
           this.friends = friends;

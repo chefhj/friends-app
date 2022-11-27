@@ -16,6 +16,7 @@ export class LandingPageComponent implements OnInit, OnDestroy{
   constructor (private store$: Store) {}
 
   ngOnInit(): void {
+      // get list of saved friends from store
       this.store$.pipe(select(selectFriendsList), takeUntil(this.ngUnsubscribe))
         .subscribe({next: (friends) => {
           this.friends = friends;

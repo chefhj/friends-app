@@ -25,6 +25,7 @@ export class InputFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    //init form
     this.friendForm = this.fb.group(
       {
         nameControl: this.nameFormControl,
@@ -33,6 +34,8 @@ export class InputFormComponent implements OnInit {
       }
     )
   }
+
+  // returns new Friend object based on input form
   createFriend() {
     const newFriend: Friend = {
       name: this.nameFormControl.value,
@@ -43,12 +46,15 @@ export class InputFormComponent implements OnInit {
     };
     return newFriend;
   }
+  //clears form control values
   clearForm() {
     this.nameFormControl.reset();
     this.ageFormControl.reset();
     this.weightFormControl.reset();
     this.friendFormControl.reset();
   }
+
+  //adds friend to list of friends in store
   addFriend() {
     const newFriend = this.createFriend();
     this.store$.dispatch(addFriend({payload: newFriend}));

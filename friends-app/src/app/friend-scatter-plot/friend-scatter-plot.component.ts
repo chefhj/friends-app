@@ -31,6 +31,7 @@ export class FriendScatterPlotComponent implements  AfterViewChecked{
     this.drawPlot(this.dataSet, this.xAttribute, this.yAttribute, this.label, this.xScale, this.yScale);
   }
 
+  //initializes SVG in DOM
   private createSvg(): void {
     this.svg = d3.select("figure#scatter")
       .append("svg")
@@ -40,11 +41,15 @@ export class FriendScatterPlotComponent implements  AfterViewChecked{
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
 
+
+  //clears SVG from DOM
   private clearSVG() {
     d3.select("figure#scatter")
       .selectAll('svg').remove();
   }
 
+
+  //Draws graphics onto SVG
   private drawPlot(data, xAttribute, yAttribute, label: string, xScale: number, yScale: number): void {
     // Add X axis
     const x = d3.scaleLinear()

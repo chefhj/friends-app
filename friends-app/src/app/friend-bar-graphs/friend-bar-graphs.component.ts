@@ -30,6 +30,8 @@ export class FriendBarGraphsComponent implements AfterViewChecked{
     this.drawBars(this.dataSet, this.xAttribute, this.yAttribute, this.scale);
   }
 
+
+  //initializes SVG on the page
   private createSvg(): void {
     this.svg = d3.select("figure#bar")
       .append("svg")
@@ -39,6 +41,8 @@ export class FriendBarGraphsComponent implements AfterViewChecked{
       .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
 
+
+  //draws graphics onto SVG
   private drawBars(data: any[], xAttribute: string, yAttribute: string, scale: number): void {
     // Create the X-axis band scale
     const x = d3.scaleBand()
@@ -75,6 +79,8 @@ export class FriendBarGraphsComponent implements AfterViewChecked{
       .attr("height", (d: any) => this.height - y(d?.[yAttribute]))
       .attr("fill", "#673ab7");
   }
+
+  //Removes SVG for repaint
   private clearSVG() {
     d3.select("figure#bar")
       .selectAll('svg').remove();
